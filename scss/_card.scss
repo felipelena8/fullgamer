@@ -1,0 +1,58 @@
+.item {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    height: 250px;
+    .itemBody {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .itemBtn {
+        max-width: 160px;
+    }
+    .itemBtn:hover {
+        background-color: white;
+        color: #0d6efd;
+    }
+    .itemText {
+        font-size: 20px;
+    }
+    .itemImg {
+        align-self: center;
+        margin-right: 20px;
+        width: 100%;
+        max-width: 200px;
+    }
+    .itemImg:hover {
+        opacity: 50%;
+        cursor: pointer;
+    }
+    .itemCost {
+        font-size: 30px;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 576px) {
+    .item {
+        flex-direction: column;
+        height: auto;
+    }
+    .itemBody {
+        margin-left: 0px !important;
+        align-items: center;
+    }
+    .itemBtn {
+        align-self: center;
+        max-width: 100% !important;
+        width: 100%;
+    }
+    .itemImg {
+        width: 200px;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,49 @@
+@import "variables",
+"../node_modules/bootstrap/scss/bootstrap",
+"footer",
+"main",
+"card",
+"mixins",
+"header";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgb(11, 11, 11), black);
+    overflow-x: hidden;
+}
+
+.text {
+    font-family: $fuenteTexto, sans-serif;
+    font-size: 1rem
+}
+
+ul {
+    .textLink {
+        font-family: $fuenteTexto, sans-serif;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+    li ul .textLink {
+        font-size: 1rem;
+    }
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.colorNegro {
+    color: $colorOscuro
+}
+
+img {
+    size: 10px;
+}

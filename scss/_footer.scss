@@ -1,0 +1,38 @@
+footer {
+    padding-top: 20px;
+    width: 100%;
+    background-color: $colorOscuro;
+    border-top: 2px solid #000;
+    .item__social {
+        color: white;
+        transition: color 0.3s;
+        height: 100%;
+        display: inline-block;
+    }
+    #facebook:hover {
+        color: rgb(0, 81, 255);
+    }
+    #twitter:hover {
+        color: cyan;
+    }
+    #instagram:hover {
+        background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    h4 {
+        font-family: $fuenteTexto, sans-serif;
+        font-size: 2rem;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+    @media (max-width: 768px) {
+        padding-top: 10px;
+        h4 {
+            font-size: 1.5rem;
+        }
+        .item__social {
+            height: 75%;
+        }
+    }
+}

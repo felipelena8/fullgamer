@@ -1,0 +1,56 @@
+@keyframes lineaRGB {
+    0% {
+        background-position: 200% 0%;
+    }
+    100% {
+        background-position: 0% 200%;
+    }
+}
+
+header {
+    width: 100%;
+    background-color: $colorOscuro;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    .navBordeRGB {
+        background: linear-gradient(60deg, fuchsia 0%, cyan 50%, fuchsia 100%);
+        height: 3px;
+        background-size: 200% 200%;
+        animation: lineaRGB 2s linear 0s infinite;
+    }
+    .navItem {
+        transition: border-bottom 0.2s;
+        border-bottom: 3px solid rgb(33, 37, 41);
+        &:hover {
+            @include linkActivado(cyan);
+        }
+    }
+    .activado {
+        @include linkActivado(fuchsia);
+    }
+    nav {
+        @media (min-width: 768px) {
+            ul {
+                margin-top: 0px !important;
+                li {
+                    ul {
+                        padding: 0.5rem;
+                        background-color: $colorOscuro;
+                        list-style-type: none;
+                        position: absolute;
+                        transition: all 3s;
+                        gap: 12px;
+                        flex-direction: column;
+                    }
+                    &:hover ul {
+                        display: flex;
+                    }
+                }
+            }
+        }
+        ul {
+            margin-top: 0.5rem;
+        }
+    }
+}
