@@ -60,6 +60,8 @@
 #contenedorCartCards {
     display: flex;
     flex-direction: column;
+    max-height: 270px;
+    overflow-y: scroll;
     gap: 0.5rem;
     #cardCarrito {
         display: flex;
@@ -80,8 +82,35 @@
 
 .footerCart {
     margin-top: 10px;
+    .containerBoton {
+        gap: 10px;
+    }
 }
 
 #total {
     font-size: 20px;
+}
+
+.producto {
+    padding: 30px;
+    background-color: rgb(0, 0, 0);
+    .imagenDetalle {
+        width: 50%;
+        background-color: rgb(207, 204, 204);
+        border-radius: 0.6rem;
+    }
+    .infoProducto {
+        padding-left: 10px;
+        border-radius: 0.25rem;
+        background-color: rgb(44, 44, 44);
+        .titleProd {
+            color: white;
+        }
+        .descProd {
+            color: white;
+        }
+        .precioProd {
+            color: white;
+        }
+    }
 }

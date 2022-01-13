@@ -13,19 +13,30 @@ class Carrito {
         this.precio = 0
         this.cantidad = 0
         this.elementos = []
+        this.cantidadPorElemento = []
     }
     agregar(id) {
         let producto = buscarProducto(id, productos)
+        let indice = this.elementos.indexOf(producto)
+        if (indice == -1) {
+            this.elementos.push(producto)
+            this.cantidad += 1
+            this.cantidadPorElemento.push(1)
+        } else {
+            this.cantidadPorElemento[indice] += 1
+        }
         this.precio += producto.precio
-        this.elementos.push(producto)
-        this.cantidad += 1
         this.actualizarIndicador()
         this.actualizarLista()
+
     }
     eliminar(id) {
         let producto = buscarProducto(id, productos)
-        this.precio -= producto.precio
         let indiceElemento = this.elementos.indexOf(producto)
+        let cantProducto = this.cantidadPorElemento[indiceElemento]
+        this.precio -= producto.precio * cantProducto
+        this.cantidadPorElemento.splice(indiceElemento, 1)
+
         this.elementos.splice(indiceElemento, 1)
         this.cantidad -= 1
         this.actualizarLista()
@@ -35,12 +46,18 @@ class Carrito {
         this.precio = 0
         this.cantidad = 0
         this.elementos = []
+        this.actualizarLista()
+        this.actualizarIndicador()
+    }
+    cantElementos(producto) {
+        return this.cantidadPorElemento[this.elementos.indexOf(producto)]
     }
     actualizarIndicador() {
         let elementoHtml = document.getElementById('indicadorCarrito')
         elementoHtml.innerHTML = `<p>${this.cantidad}</p>`
     }
     actualizarLista() {
+        var ids = {}
         let htmlElement = document.getElementById('contenedorCartCards')
         var elementosLista = ""
         htmlElement.innerHTML = ``
@@ -52,7 +69,8 @@ class Carrito {
                     <div class="cartInfo">
                         <h4 class='titleCart'>${producto.nombre}</h4>
                         <p class="itemCostCart">$${producto.precio}</p>
-                        <a onclick="carro.eliminar(${producto.id})">Eliminar</a>
+                        <p class = "my-0 ">Cantidad: ${this.cantElementos(producto)} <a onclick="carro.eliminar(${producto.id})">Eliminar</a></p>
+                        
                     </div>
                 </div>
             `
@@ -62,8 +80,12 @@ class Carrito {
             ${elementosLista}
         </div>
         <div class="footerCart">
-            <p id="total" class="text-center">Total: ${this.precio}</p>
-            <button class="btn btn-primary itemBtn w-100">Finalizar compra</button>
+            <p id="total" class="text-center">Total: $${this.precio}</p>
+            <div class = "justify-content-center w-100 d-flex containerBoton">
+            <button class="btn btn-primary itemBtn col-5">Finalizar compra</button>
+            <button class="btn btn-primary itemBtn col-5" onclick = "carro.vaciar()">Vaciar carrito</button>
+            </div>
+            
         </div><div class="d-none">No hay elementos</div>`
         } else {
             let listaProductos = document.getElementById('listadoProductos')
@@ -75,8 +97,8 @@ class Carrito {
 
 }
 
-productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX Cloud II Red PC | PS4 | Switch | XBOX', 11200, '/images/productos/auriculares.jpg', 'perifericos'),
-    new Producto(2, "Teclado Redragon K550 Yama", 'Redragon K550 YAMA Black Mechanical Retroiluminado RGB Español', 7250, '/images/productos/Teclado-Mecanico-Redragon-YAMA-K550.jpg', 'perifericos'),
+productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX Cloud II Red PC | PS4 | Switch | XBOX', 11200, 'images/productos/auriculares.jpg', 'perifericos'),
+    new Producto(2, "Teclado Redragon K550 Yama", 'Redragon K550 YAMA Black Mechanical Retroiluminado RGB Español', 7250, 'images/productos/Teclado-Mecanico-Redragon-YAMA-K550.jpg', 'perifericos'),
     new Producto(3, 'Teclado logitech G213', "Logitech G213 Prodigy RGB Gaming Español", 6700, 'images/productos/teclado 2.jpg', 'perifericos'),
     new Producto(4, 'Procesador Intel Core I7 9700F', "Procesador I7 9700F 4.7ghz", 35000, 'images/productos/i7.jpg', 'procesadores'),
     new Producto(5, 'AMD PC AMD ATHLON 3000G', "Procesador I7 9700F 4.7ghz", 35000, 'images/productos/pc amd.jpg', 'computadoras'),
@@ -95,6 +117,10 @@ function buscarProducto(id, prods) {
         }
     }
 }
+
+function detalles(id) {
+    window.location.href = `/prod.html?prodID=${id}`;
+}
 carro = new Carrito()
 
 function injectProductos(productos, categoria) {
@@ -102,12 +128,12 @@ function injectProductos(productos, categoria) {
     if (htmlProd) {
         productos.map(prod => {
             htmlElement = `
-                    <div class="item m-2" data-aos="zoom-in-right"><img src="${prod.imagen}" alt="Auriculares HyperX" class="itemImg">
+                    <div class="item m-2" data-aos="zoom-in-right"><img src="${prod.imagen}" alt="Auriculares HyperX" class="itemImg"  onclick = 'detalles(${prod.id})'>
                     <div class="itemBody">
                         <h4 class="itemTitle m-0">${prod.nombre}</h4>
                         <p class="itemText m-0">${prod.descripcion}</p>
                         <h2 class="itemCost mt-1">$${prod.precio}</h2>
-                        <button href="construccion.html" class="btn btn-primary itemBtn" onclick = "carro.agregar(${prod.id})">Añadir al carrito</button>
+                        <button class="btn btn-primary itemBtn" onclick = "carro.agregar(${prod.id})">Añadir al carrito</button>
                     </div>
                 </div>
                     `;
