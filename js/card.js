@@ -155,4 +155,4 @@ injectProductos(productos, 'productos');
 injectProductos(productos, 'perifericos');
 injectProductos(productos, 'computadoras');
 
-carro = new Carro()
+carro = new Carrito()
