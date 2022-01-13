@@ -119,7 +119,11 @@ function buscarProducto(id, prods) {
 }
 
 function detalles(id) {
-    window.location.href = `/prod.html?prodID=${id}`;
+    if (window.location.host == '127.0.0.1:5500') {
+        window.location.href = `/prod.html?prodID=${id}`;
+    } else {
+        window.location.href == `/prod.html?prodID=${id}`;
+    }
 }
 carro = new Carrito()
 

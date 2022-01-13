@@ -7,7 +7,7 @@ elementoHtml.innerHTML = `
             <div class='infoProducto  col-4'>
                 <h1 class="titleProd">${productoBuscado.nombre}</h1>
                 <h3 class='descProd'>${productoBuscado.descripcion}</h3>
-                <h3 class='precioProd'>${productoBuscado.precio}</h3>
+                <h3 class='precioProd'>$${productoBuscado.precio}</h3>
                 <button class="btn btn-primary itemBtn" onclick="carro.agregar(${id})">Añadir al carrito</button>
             </div>
 `
