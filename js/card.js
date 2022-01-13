@@ -8,6 +8,72 @@ class Producto {
         this.categoria = categoria
     }
 }
+class Carrito {
+    constructor() {
+        this.precio = 0
+        this.cantidad = 0
+        this.elementos = []
+    }
+    agregar(id) {
+        let producto = buscarProducto(id, productos)
+        this.precio += producto.precio
+        this.elementos.push(producto)
+        this.cantidad += 1
+        this.actualizarIndicador()
+        this.actualizarLista()
+    }
+    eliminar(id) {
+        let producto = buscarProducto(id, productos)
+        this.precio -= producto.precio
+        let indiceElemento = this.elementos.indexOf(producto)
+        this.elementos.splice(indiceElemento, 1)
+        this.cantidad -= 1
+        this.actualizarLista()
+        this.actualizarIndicador()
+    }
+    vaciar() {
+        this.precio = 0
+        this.cantidad = 0
+        this.elementos = []
+    }
+    actualizarIndicador() {
+        let elementoHtml = document.getElementById('indicadorCarrito')
+        elementoHtml.innerHTML = `<p>${this.cantidad}</p>`
+    }
+    actualizarLista() {
+        let htmlElement = document.getElementById('contenedorCartCards')
+        var elementosLista = ""
+        htmlElement.innerHTML = ``
+        if (this.cantidad != 0) {
+            this.elementos.map(producto => {
+                elementosLista += `
+                <div id="cardCarrito">
+                    <img src="${producto.imagen}" alt="" class="imagenCart">
+                    <div class="cartInfo">
+                        <h4 class='titleCart'>${producto.nombre}</h4>
+                        <p class="itemCostCart">$${producto.precio}</p>
+                        <a onclick="carro.eliminar(${producto.id})">Eliminar</a>
+                    </div>
+                </div>
+            `
+            })
+            let listaProductos = document.getElementById('listadoProductos')
+            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
+            ${elementosLista}
+        </div>
+        <div class="footerCart">
+            <p id="total" class="text-center">Total: ${this.precio}</p>
+            <button class="btn btn-primary itemBtn w-100">Finalizar compra</button>
+        </div><div class="d-none">No hay elementos</div>`
+        } else {
+            let listaProductos = document.getElementById('listadoProductos')
+            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
+            </div>
+            <div class="d-block">No hay elementos</div>`
+        }
+    }
+
+}
 
 productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX Cloud II Red PC | PS4 | Switch | XBOX', 11200, '../images/productos/auriculares.jpg', 'perifericos'),
     new Producto(2, "Teclado Redragon K550 Yama", 'Redragon K550 YAMA Black Mechanical Retroiluminado RGB Español', 7250, '../images/productos/Teclado-Mecanico-Redragon-YAMA-K550.jpg', 'perifericos'),
@@ -22,6 +88,15 @@ productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX 
     new Producto(11, 'Teclado Logitech G213 Prodigy RGB Gaming Inglés Internacional', 'Teclado logitech G213 RGB Semi-Mecanico', 4500, '../images/productos/teclado.jpg', 'perifericos')
 ]
 
+function buscarProducto(id, prods) {
+    for (let i = 0; i < prods.length; i++) {
+        if (id == prods[i].id) {
+            return prods[i]
+        }
+    }
+}
+carro = new Carrito()
+
 function injectProductos(productos, categoria) {
     let htmlProd = document.getElementById(categoria)
     if (htmlProd) {
@@ -32,18 +107,16 @@ function injectProductos(productos, categoria) {
                         <h4 class="itemTitle m-0">${prod.nombre}</h4>
                         <p class="itemText m-0">${prod.descripcion}</p>
                         <h2 class="itemCost mt-1">$${prod.precio}</h2>
-                        <a href="construccion.html" class="btn btn-primary itemBtn">Añadir al carrito</a>
+                        <button href="construccion.html" class="btn btn-primary itemBtn" onclick = "carro.agregar(${prod.id})">Añadir al carrito</button>
                     </div>
                 </div>
-        `;
-
+                    `;
             if (categoria == prod.categoria) {
                 htmlProd.innerHTML += htmlElement
 
             } else if ('productos' == categoria) {
                 htmlProd.innerHTML += htmlElement
             }
-
         })
     }
 }
@@ -51,3 +124,5 @@ function injectProductos(productos, categoria) {
 injectProductos(productos, 'productos');
 injectProductos(productos, 'perifericos');
 injectProductos(productos, 'computadoras');
+
+carro = new Carro()

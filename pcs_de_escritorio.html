@@ -26,155 +26,99 @@
         <div class="container mb-3 pt-2">
             <div class="row align-items-center">
                 <div class="col col-md-4 col-sm-12">
-                    <a class="navbar-brand" href="index.html"><img src="images/Logo.png" alt="logo-fullgamer" class="navbar-brand" style="width: 300px" /></a>
+                    <a class="navbar-brand" href="index.html"><img src="images/Logo.png" alt="logo-fullgamer" class="navbar-brand" style="width:300px"></a>
                 </div>
                 <div class="col-md-4 offset-md-1 col-10">
                     <form class="d-flex">
-                        <input class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search" />
-                        <button type="button" class="btn btn-outline-light">
-                Buscar
-              </button>
+                        <input class="form-control me-2 bg-dark text-white" type="search" placeholder="Search" aria-label="Search">
+                        <button type="button" class="btn btn-outline-light">Buscar</button>
                     </form>
                 </div>
                 <div class="dropdown col-2 offset-md-1">
                     <a class="text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cart-arrow-down fa-2x"></i>
+                        <i class="fas fa-cart-arrow-down fa-2x carritoLogo">
+                          <div id = 'indicadorCarrito'> 
+                              <p>0</p>
+                          </div>
+                      </i>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li>
-                            <a class="dropdown-item text-white" href="#">No hay elementos</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="navBordeRGB"></div>
-      <!--Barra para navegar entre paginas-->
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <button
-          class="navbar-toggler mx-2"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="container-fluid justify-content-md-evenly">
-          <div class="d-flex">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <div data-aos="fade-right">
-                <ul class="navbar-nav">
-                  <li class="nav-item navItem">
-                    <a
-                      class="nav-link active textLink text-white"
-                      aria-current="page"
-                      href="productos.html"
-                      >Productos</a
-                    >
-                  </li>
-                  <li class="nav-item dropdown navItem">
-                    <a
-                      class="nav-link dropdown textLink text-white"
-                      href="perifericos.html"
-                      role="button"
-                      aria-expanded="false"
-                      >Perifericos</a
-                    >
-                    <ul class="dropdown-menu">
-                      <li class="nav-item navItem">
-                        <a
-                          class="dropdown-item textLink text-white"
-                          href="construccion.html"
-                          >Teclados</a
-                        >
-                      </li>
-                      <li class="nav-item navItem">
-                        <a
-                          class="dropdown-item textLink text-white"
-                          href="construccion.html"
-                          >Mouses</a
-                        >
-                      </li>
-                      <li class="nav-item navItem">
-                        <a
-                          class="dropdown-item textLink text-white"
-                          href="construccion.html"
-                          >Auriculares</a
-                        >
-                      </li>
-                      <li class="nav-item navItem">
-                        <a
-                          class="dropdown-item textLink text-white"
-                          href="construccion.html"
-                          >Microfonos</a
-                        >
-                      </li>
-                      <li class="nav-item navItem">
-                        <a
-                          class="dropdown-item textLink text-white"
-                          href="construccion.html"
-                          >Joysticks</a
-                        >
-                      </li>
+                        <li><a class="dropdown-item text-white" href="#">No
+                                      hay elementos</a></li>
                     </ul>
-                  </li>
-                  <li class="nav-item navItem activado">
-                    <a
-                      class="nav-link textLink text-white"
-                      href="pcs_de_escritorio.html"
-                      >Computadoras de escritorio</a
-                    >
-                  </li>
-                  <li class="nav-item navItem">
-                    <a class="nav-link textLink text-white" href="ayuda.html"
-                      >Ayuda</a
-                    >
-                  </li>
-                </ul>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
+        <div class="navBordeRGB"></div>
+        <!--Barra para navegar entre paginas-->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+            <div class="container-fluid justify-content-md-evenly">
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <div data-aos="fade-right">
+                            <ul class="navbar-nav">
+                                <li class="nav-item navItem ">
+                                    <a class="nav-link  textLink text-white" aria-current="page" href="productos.html">Productos</a>
+                                </li>
+                                <li class="nav-item dropdown navItem">
+                                    <a class="nav-link dropdown textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Joysticks</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item navItem activado">
+                                    <a class="nav-link textLink active text-white" href="pcs_de_escritorio.html">Computadoras
+                                                  de
+                                                  escritorio</a>
+                                </li>
+                                <li class="nav-item navItem">
+                                    <a class="nav-link textLink text-white" href="ayuda.html">Ayuda</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
     <main>
-      <h1 class="text-white mt-3 text-center m-3 text-uppercase text-decoration-underline" data-aos="zoom-in-up">
-        Computadoras de escritorio
-      </h1>
-      <div class="row align-items-start mb-3 justify-content-center">
-        <!--Filtros de productos-->
-        <div
-          class="d-none d-lg-block mt-3 navegarProductos col-3"
-          data-aos="flip-right"
-        >
-          <ul>
-            <li class="itemsProductos text-white">Intel</li>
-            <li class="itemsProductos text-white">AMD</li>
-            <li class="itemsProductos text-white">Genérica</li>
-          </ul>
+        <h1 class="text-white mt-3 text-center m-3 text-uppercase text-decoration-underline" data-aos="zoom-in-up">
+            Computadoras de escritorio
+        </h1>
+        <div class="row align-items-start mb-3 justify-content-center">
+            <!--Filtros de productos-->
+            <div class="d-none d-lg-block mt-3 navegarProductos col-3" data-aos="flip-right">
+                <ul>
+                    <li class="itemsProductos text-white">Intel</li>
+                    <li class="itemsProductos text-white">AMD</li>
+                    <li class="itemsProductos text-white">Genérica</li>
+                </ul>
+            </div>
+            <!--Productos-->
+            <div class="container m-3 col" id="computadoras">
+            </div>
         </div>
-        <!--Productos-->
-        <div class="container m-3 col" id="computadoras">
-        </div>
-      </div>
     </main>
     <footer class="footer" data-aos="zoom-in-up">
-      <div class="container">
-          <div class="row">
-              <!--Contacto-->
-              <div class="col-sm-12 col-md-4 mb-2 mb-lg-0">
-                  <h4 class="text-uppercase mb-1">Contáctenos</h4>
-                  <p class="text-white m-0"> 25 de Mayo 888 <br> (54 11) 6708-1366
-                      <br> consultasfgamer@gmail.com.ar
-                      <br>
-                      <a href="https://api.whatsapp.com/send?phone=541167081366" target="_blank">
-                          <i class="fa fa-whatsapp" aria-hidden="true" rel="nofollow"></i> WhatsApp (+54 911 6708 1366)
-                      </a>
-                            </p>
+        <div class="container">
+            <div class="row">
+                <!--Contacto-->
+                <div class="col-sm-12 col-md-4 mb-2 mb-lg-0">
+                    <h4 class="text-uppercase mb-1">Contáctenos</h4>
+                    <p class="text-white m-0"> 25 de Mayo 888 <br> (54 11) 6708-1366
+                        <br> consultasfgamer@gmail.com.ar
+                        <br>
+                        <a href="https://api.whatsapp.com/send?phone=541167081366" target="_blank">
+                            <i class="fa fa-whatsapp" aria-hidden="true" rel="nofollow"></i> WhatsApp (+54 911 6708 1366)
+                        </a>
+                    </p>
                 </div>
                 <div class="col-sm-12 col-md-4 mb-2 mb-lg-0">
                     <h4 class="text-uppercase mb-2">Seguinos en</h4>
@@ -203,14 +147,14 @@
                 </div>
             </div>
         </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/b3e3212614.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
-        <script src="js/card.js"></script>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b3e3212614.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="js/card.js"></script>
 </body>
 
 </html>

@@ -11271,6 +11271,35 @@ main section .cardIndex {
     max-width: 100%;
   }
 }
+#contenedorCartCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#contenedorCartCards #cardCarrito {
+  display: flex;
+  min-height: 130px;
+}
+#contenedorCartCards #cardCarrito .imagenCart {
+  height: auto;
+  max-width: 120px;
+  border-radius: 0.5rem;
+}
+#contenedorCartCards #cardCarrito .cartInfo {
+  margin-left: 12px;
+}
+#contenedorCartCards #cardCarrito .cartInfo .itemCostCart {
+  font-size: 20px;
+}
+
+.footerCart {
+  margin-top: 10px;
+}
+
+#total {
+  font-size: 20px;
+}
+
 @keyframes lineaRGB {
   0% {
     background-position: 200% 0%;
@@ -11323,6 +11352,30 @@ header .activado {
 }
 header nav ul {
   margin-top: 0.5rem;
+}
+header #listadoProductos {
+  width: 400px;
+  height: auto;
+}
+header .carritoLogo {
+  padding: 7px 7px 0 0;
+  position: relative;
+}
+header .carritoLogo #indicadorCarrito {
+  width: 23px;
+  height: 23px;
+  background-color: #427eff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+}
+header .carritoLogo #indicadorCarrito p {
+  margin-top: 1px;
+  margin-left: 1px;
 }
 
 * {

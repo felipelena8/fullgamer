@@ -56,3 +56,32 @@
         max-width: 100%;
     }
 }
+
+#contenedorCartCards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    #cardCarrito {
+        display: flex;
+        min-height: 130px;
+        .imagenCart {
+            height: auto;
+            max-width: 120px;
+            border-radius: 0.5rem;
+        }
+        .cartInfo {
+            margin-left: 12px;
+            .itemCostCart {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.footerCart {
+    margin-top: 10px;
+}
+
+#total {
+    font-size: 20px;
+}
