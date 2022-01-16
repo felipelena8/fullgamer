@@ -67,11 +67,11 @@
                                 <li class="nav-item dropdown navItem">
                                     <a class="nav-link dropdown textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Teclados</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Mouses</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Auriculares</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Microfonos</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Joysticks</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('teclados', 'perifericos')">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('mouses', 'perifericos')">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('auriculares', 'perifericos')">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('microfonos', 'perifericos')">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('joysticks', 'perifericos')">Joysticks</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item navItem activado">
@@ -97,9 +97,9 @@
             <!--Filtros de productos-->
             <div class="d-none d-lg-block mt-3 navegarProductos col-3" data-aos="flip-right">
                 <ul>
-                    <li class="itemsProductos text-white">Intel</li>
-                    <li class="itemsProductos text-white">AMD</li>
-                    <li class="itemsProductos text-white">Genérica</li>
+                    <li class="itemsProductos text-white" onclick="categoria('computadoras', 'computadoras')">Todos</li>
+                    <li class="itemsProductos text-white" onclick="categoria('intel', 'computadoras')">Intel</li>
+                    <li class="itemsProductos text-white" onclick="categoria('amd', 'computadoras')">AMD</li>
                 </ul>
             </div>
             <!--Productos-->

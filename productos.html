@@ -66,11 +66,11 @@
                                 <li class="nav-item dropdown navItem">
                                     <a class="nav-link dropdown textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Teclados</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Mouses</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Auriculares</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Microfonos</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Joysticks</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('teclados', 'perifericos')">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('mouses', 'perifericos')">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('auriculares', 'perifericos')">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('microfonos', 'perifericos')">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('joysticks', 'perifericos')">Joysticks</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item navItem">
@@ -94,16 +94,18 @@
             <!--Filtro de productos-->
             <div class="d-none d-lg-block mt-3 navegarProductos col-3" data-aos="flip-right">
                 <ul>
-                    <li class="itemsProductos text-white">Procesadores</li>
-                    <li class="itemsProductos text-white">Placas de videos</li>
-                    <li class="itemsProductos text-white">Almacenamiento</li>
-                    <li class="itemsProductos text-white">Memorias Ram</li>
-                    <li class="itemsProductos text-white">Monitores</li>
-                    <li class="itemsProductos text-white">Teclados</li>
-                    <li class="itemsProductos text-white">Mouses</li>
-                    <li class="itemsProductos text-white">Gabinetes, fuentes y coolers</li>
-                    <li class="itemsProductos text-white">Parlantes</li>
-                    <li class="itemsProductos text-white">Auriculares</li>
+                    <li class="itemsProductos text-white" onclick="categoria('procesadores', 'productos')">Procesadores</li>
+                    <li class="itemsProductos text-white" onclick="categoria('gpu', 'productos')">Placas de videos</li>
+                    <li class="itemsProductos text-white" onclick="categoria('storage', 'productos')">Almacenamiento</li>
+                    <li class="itemsProductos text-white" onclick="categoria('rams', 'productos')">Memorias Ram</li>
+                    <li class="itemsProductos text-white" onclick="categoria('monitores', 'productos')">Monitores</li>
+                    <li class="itemsProductos text-white" onclick="categoria('teclados', 'productos')">Teclados</li>
+                    <li class="itemsProductos text-white" onclick="categoria('mouses', 'productos')">Mouses</li>
+                    <li class="itemsProductos text-white" onclick="categoria('gabinetes', 'productos')">Gabinetes</li>
+                    <li class="itemsProductos text-white" onclick="categoria('fuentes', 'productos')">fuentes</li>
+                    <li class="itemsProductos text-white" onclick="categoria('coolers', 'productos')"> coolers</li>
+                    <li class="itemsProductos text-white" onclick="categoria('parlantes', 'productos')">Parlantes</li>
+                    <li class="itemsProductos text-white" onclick="categoria('auriculares', 'productos')">Auriculares</li>
                 </ul>
             </div>
             <!--Productos-->

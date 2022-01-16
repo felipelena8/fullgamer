@@ -68,11 +68,11 @@
                                 <li class="nav-item dropdown navItem">
                                     <a class="nav-link dropdown textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Teclados</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Mouses</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Auriculares</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Microfonos</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Joysticks</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('teclados', 'perifericos')">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('mouses', 'perifericos')">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('auriculares', 'perifericos')">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('microfonos', 'perifericos')">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('joysticks', 'perifericos')">Joysticks</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item navItem">
@@ -124,33 +124,33 @@
             <div class="container-fluid categorias m-2 w-75" data-aos="fade-up">
                 <div class="row">
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
-                        <a href="construccion.html"><img src="images/icons/iconmonstr-disk-2.svg" alt="Disco duro" class="w-25"></a>
+                            bg-white itemCategoria border cardIndex" onclick="categoria('storage', 'productos')">
+                        <a><img src="images/icons/iconmonstr-disk-2.svg" alt="Disco duro" class="w-25"></a>
                         <h5 class="card-title fs-5">Disco duro</h5>
                     </div>
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
-                        <a href="construccion.html"><img src="images/icons/iconmonstr-keyboard-10.svg" alt="Teclado" class="w-25"></a>
+                            bg-white itemCategoria border cardIndex" onclick="categoria('teclados','productos')">
+                        <a><img src="images/icons/iconmonstr-keyboard-10.svg" alt="Teclado" class="w-25"></a>
                         <h5 class="card-title fs-5">Teclados</h5>
                     </div>
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
-                        <a href="construccion.html"><img src="images/icons/iconmonstr-mouse-8.svg" alt="Mouse" class="w-25"></a>
+                            bg-white itemCategoria border cardIndex" onclick="categoria('mouses', 'perifericos')">
+                        <a><img src="images/icons/iconmonstr-mouse-8.svg" alt="Mouse" class="w-25"></a>
                         <h5 class="card-title">Mouses</h5>
                     </div>
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
+                            bg-white itemCategoria border cardIndex" onclick="categoria('procesadores', 'productos')">
                         <a href="construccion.html"><img src="images/icons/iconmonstr-cpu-6.svg" alt="Procesadores" class="w-25"></a>
                         <h5 class="card-title">Procesadores</h5>
                     </div>
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
-                        <a href="construccion.html"><img src="images/icons/iconmonstr-laptop-7.svg" alt="Notebooks" class="w-25"></a>
+                            bg-white itemCategoria border cardIndex" onclick="categoria('nootebooks', 'productos')">
+                        <a><img src="images/icons/iconmonstr-laptop-7.svg" alt="Notebooks" class="w-25"></a>
                         <h5 class="card-title">Laptops</h5>
                     </div>
                     <div class="col-sm-6 col-lg-2 col-md-4 text-center
-                            bg-white itemCategoria border cardIndex">
-                        <a href="construccion.html"><img src="images/icons/iconmonstr-computer-6.svg" alt="Computadoras" class="w-25"></a>
+                            bg-white itemCategoria border cardIndex" onclick="categoria('computadoras')">
+                        <a><img src="images/icons/iconmonstr-computer-6.svg" alt="Computadoras" class="w-25"></a>
                         <h5 class="card-title">Computadoras</h5>
                     </div>
                 </div>
@@ -207,6 +207,8 @@
         AOS.init();
     </script>
     <script src="js/card.js"></script>
+
+    <script src="js/prod.js"></script>
 </body>
 
 </html>

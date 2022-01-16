@@ -67,11 +67,11 @@
                                 <li class="nav-item dropdown navItem  activado">
                                     <a class="nav-link dropdown active textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Teclados</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Mouses</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Auriculares</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Microfonos</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" href="construccion.html">Joysticks</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('teclados', 'perifericos')">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('mouses', 'perifericos')">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('auriculares', 'perifericos')">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('microfonos', 'perifericos')">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('joysticks', 'perifericos')">Joysticks</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item navItem">
@@ -95,11 +95,12 @@
             <!--Filtro de productos-->
             <div class="d-none d-lg-block mt-3 navegarProductos col-3" data-aos="flip-right">
                 <ul>
-                    <li class="itemsProductos text-white">Teclados</li>
-                    <li class="itemsProductos text-white">Kits de Mouse y Teclado</li>
-                    <li class="itemsProductos text-white">Mouses</li>
-                    <li class="itemsProductos text-white">Mousepads</li>
-                    <li class="itemsProductos text-white">Auriculares</li>
+                    <li class="itemsProductos text-white" onclick="categoria('teclados', 'perifericos')">Teclados</li>
+                    <li class="itemsProductos text-white" onclick="categoria('kit de mouse y teclado','perifericos')">Kits de Mouse y Teclado</li>
+                    <li class="itemsProductos text-white " onclick="categoria('mouses','perifericos')">Mouses</li>
+                    <li class="itemsProductos text-white" onclick="categoria('mousepads','perifericos')">Mousepads</li>
+                    <li class="itemsProductos text-white" onclick="categoria('microfonos','perifericos')">Microfonos</li>
+                    <li class="itemsProductos text-white" onclick="categoria('auriculares','perifericos')">Auriculares</li>
                 </ul>
             </div>
             <!--Productos-->
