@@ -65,7 +65,9 @@ class Carrito {
             this.elementos.map(producto => {
                 elementosLista += `
                 <div id="cardCarrito">
+                    <div class = 'contImagenCart'>
                     <img src="${producto.imagen}" alt="" class="imagenCart">
+                    </div>
                     <div class="cartInfo">
                         <h4 class='titleCart'>${producto.nombre}</h4>
                         <p class="itemCostCart">$${producto.precio}</p>
