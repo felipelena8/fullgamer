@@ -37,10 +37,10 @@
                 <div class="dropdown col-2 offset-md-1">
                     <a class="text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-cart-arrow-down fa-2x carritoLogo">
-                            <div id = 'indicadorCarrito'> 
-                                <p>0</p>
-                            </div>
-                        </i>
+                                <div id= 'indicadorCarrito'>
+                                    <p>0</p>
+                                </div>
+                            </i>
                     </a>
                     <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuLink" id='listadoProductos'>
                         <div class="d-flex" id="contenedorCartCards">
@@ -54,30 +54,42 @@
         <!--Barra para navegar entre paginas-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             <div class="container-fluid justify-content-md-evenly">
                 <div class="d-flex">
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <div data-aos="fade-right">
                             <ul class="navbar-nav">
                                 <li class="nav-item navItem">
-                                    <a class="nav-link  textLink text-white" aria-current="page" href="productos.html">Productos</a>
+                                    <a class="nav-link textLink text-white" aria-current="page" href="productos.html">Productos</a>
                                 </li>
-                                <li class="nav-item dropdown navItem  activado">
-                                    <a class="nav-link dropdown active textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
+                                <li class="nav-item dropdown navItem
+                                        activado">
+                                    <a class="nav-link dropdown active
+                                            textLink text-white" href="perifericos.html" role="button" aria-expanded="false">Perifericos</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('teclados', 'perifericos')">Teclados</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('mouses', 'perifericos')">Mouses</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('auriculares', 'perifericos')">Auriculares</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('microfonos', 'perifericos')">Microfonos</a></li>
-                                        <li class="nav-item navItem"><a class="dropdown-item textLink text-white" onclick="categoria('joysticks', 'perifericos')">Joysticks</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item
+                                                    textLink text-white" onclick="categoria('teclados',
+                                                    'perifericos')">Teclados</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item
+                                                    textLink text-white" onclick="categoria('mouses',
+                                                    'perifericos')">Mouses</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item
+                                                    textLink text-white" onclick="categoria('auriculares',
+                                                    'perifericos')">Auriculares</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item
+                                                    textLink text-white" onclick="categoria('microfonos',
+                                                    'perifericos')">Microfonos</a></li>
+                                        <li class="nav-item navItem"><a class="dropdown-item
+                                                    textLink text-white" onclick="categoria('joysticks',
+                                                    'perifericos')">Joysticks</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item navItem">
                                     <a class="nav-link textLink text-white" href="pcs_de_escritorio.html">Computadoras
-                                                    de
-                                                    escritorio</a>
+                                            de
+                                            escritorio</a>
                                 </li>
                                 <li class="nav-item navItem">
                                     <a class="nav-link textLink text-white" href="ayuda.html">Ayuda</a>
@@ -90,14 +102,30 @@
         </nav>
     </header>
     <main>
-        <h1 class="text-white mt-3 text-center m-3 text-uppercase text-decoration-underline" data-aos="zoom-in-up">Perifericos</h1>
+        <h1 class="text-white mt-3 text-center m-3 text-uppercase
+                text-decoration-underline" data-aos="zoom-in-up">Perifericos</h1>
         <div class="row align-items-start mb-3 justify-content-center">
+            <div class='opcionOrdenar m-3'>
+                <div class="opcionOrdenarHijo text-white">
+                    <div class='d-flex'><span>Ordenar por </span>
+                        <div class="dropdown show" id='dropdownOrdenar'>
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Alfabeticamente
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#" onclick="ordenarMenor(); injectProductos(productos, 'perifericos');">Menor Precio</a>
+                                <a class="dropdown-item" href="#" onclick="ordenarMayor(); injectProductos(productos, 'perifericos');">Mayor precio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--Filtro de productos-->
             <div class="d-none d-lg-block mt-3 navegarProductos col-3" data-aos="flip-right">
                 <ul>
                     <li class="itemsProductos text-white" onclick="categoria('teclados', 'perifericos')">Teclados</li>
                     <li class="itemsProductos text-white" onclick="categoria('kit de mouse y teclado','perifericos')">Kits de Mouse y Teclado</li>
-                    <li class="itemsProductos text-white " onclick="categoria('mouses','perifericos')">Mouses</li>
+                    <li class="itemsProductos text-white" onclick="categoria('mouses','perifericos')">Mouses</li>
                     <li class="itemsProductos text-white" onclick="categoria('mousepads','perifericos')">Mousepads</li>
                     <li class="itemsProductos text-white" onclick="categoria('microfonos','perifericos')">Microfonos</li>
                     <li class="itemsProductos text-white" onclick="categoria('auriculares','perifericos')">Auriculares</li>
@@ -105,7 +133,6 @@
             </div>
             <!--Productos-->
             <div class="container m-3 col" id="perifericos">
-
             </div>
         </div>
     </main>
@@ -138,7 +165,8 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 mb-0">
-                    <h4 class="text-uppercase mb-2">Suscribite y recibí ofertas</h4>
+                    <h4 class="text-uppercase mb-2">Suscribite y recibí ofertas
+                    </h4>
                     <form action="" class="footer__form">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Direccion de mail..." aria-label="Direccion de mail..." aria-describedby="button-addon2">
@@ -154,6 +182,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b3e3212614.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
         AOS.init();
     </script>

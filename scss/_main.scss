@@ -50,4 +50,26 @@ main {
             border-radius: 0.25rem;
         }
     }
+    .opcionOrdenar {
+        display: inline-block;
+        height: 30px;
+        text-align: right;
+        .opcionOrdenarHijo {
+            margin-left: 100px;
+            span {
+                font-family: $fuenteTexto;
+                font-size: 20px;
+            }
+            #dropdownOrdenar {
+                margin-left: 10px;
+                #dropdownMenuLink {
+                    height: 30px;
+                    text-align: center;
+                    font-family: $fuenteTexto;
+                    font-size: 20px;
+                    padding: 2px 10px;
+                }
+            }
+        }
+    }
 }

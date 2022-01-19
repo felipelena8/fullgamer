@@ -8,98 +8,7 @@ class Producto {
         this.categoria = categoria
     }
 }
-class Carrito {
-    constructor() {
-        this.precio = 0
-        this.cantidad = 0
-        this.elementos = []
-        this.cantidadPorElemento = []
-    }
-    agregar(id) {
-        let producto = buscarProducto(id, productos)
-        let indice = this.elementos.indexOf(producto)
-        if (indice == -1) {
-            this.elementos.push(producto)
-            this.cantidad += 1
-            this.cantidadPorElemento.push(1)
-        } else {
-            this.cantidadPorElemento[indice] += 1
-        }
-        this.precio += producto.precio
-        this.actualizarIndicador()
-        this.actualizarLista()
-
-    }
-    eliminar(id) {
-        let producto = buscarProducto(id, productos)
-        let indiceElemento = this.elementos.indexOf(producto)
-        let cantProducto = this.cantidadPorElemento[indiceElemento]
-        this.precio -= producto.precio * cantProducto
-        this.cantidadPorElemento.splice(indiceElemento, 1)
-
-        this.elementos.splice(indiceElemento, 1)
-        this.cantidad -= 1
-        this.actualizarLista()
-        this.actualizarIndicador()
-    }
-    vaciar() {
-        this.precio = 0
-        this.cantidad = 0
-        this.elementos = []
-        this.actualizarLista()
-        this.actualizarIndicador()
-    }
-    cantElementos(producto) {
-        return this.cantidadPorElemento[this.elementos.indexOf(producto)]
-    }
-    actualizarIndicador() {
-        let elementoHtml = document.getElementById('indicadorCarrito')
-        elementoHtml.innerHTML = `<p>${this.cantidad}</p>`
-    }
-    actualizarLista() {
-        var ids = {}
-        let htmlElement = document.getElementById('contenedorCartCards')
-        var elementosLista = ""
-        htmlElement.innerHTML = ``
-        if (this.cantidad != 0) {
-            this.elementos.map(producto => {
-                elementosLista += `
-                <div id="cardCarrito">
-                    <div class = 'contImagenCart'>
-                    <img src="${producto.imagen}" alt="" class="imagenCart">
-                    </div>
-                    <div class="cartInfo">
-                        <h4 class='titleCart'>${producto.nombre}</h4>
-                        <p class="itemCostCart">$${producto.precio}</p>
-                        <p class = "my-0 ">Cantidad: ${this.cantElementos(producto)} <a onclick="carro.eliminar(${producto.id})">Eliminar</a></p>
-                        
-                    </div>
-                </div>
-            `
-            })
-            let listaProductos = document.getElementById('listadoProductos')
-            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
-            ${elementosLista}
-        </div>
-        <div class="footerCart">
-            <p id="total" class="text-center">Total: $${this.precio}</p>
-            <div class = "justify-content-center w-100 d-flex containerBoton">
-            <button class="btn btn-primary itemBtn col-5">Finalizar compra</button>
-            <button class="btn btn-primary itemBtn col-5" onclick = "carro.vaciar()">Vaciar carrito</button>
-            </div>
-            
-        </div><div class="d-none">No hay elementos</div>`
-        } else {
-            let listaProductos = document.getElementById('listadoProductos')
-            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
-            </div>
-            <div class="d-block">No hay elementos</div>`
-        }
-    }
-
-}
-
-productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX Cloud II Red PC | PS4 | Switch | XBOX', 11200, 'images/productos/auriculares.jpg', ['perifericos', 'auriculares']),
+const productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX Cloud II Red PC | PS4 | Switch | XBOX', 11200, 'images/productos/auriculares.jpg', ['perifericos', 'auriculares']),
         new Producto(2, "Teclado Redragon K550 Yama", 'Redragon K550 YAMA Black Mechanical Retroiluminado RGB Español', 7250, 'images/productos/Teclado-Mecanico-Redragon-YAMA-K550.jpg', ['perifericos', 'teclados']),
         new Producto(4, 'Procesador Intel Core I7 9700F', "Procesador I7 9700F 4.7ghz", 35000, 'images/productos/i7.jpg', ['procesadores']),
         new Producto(26, 'GABINETE AUREOX GAMER ORION 350G TEMPLADO RGB ATX', '', 6000, 'images/productos/gabinete aureox.jpg', ['gabinetes']),
@@ -136,9 +45,108 @@ productos = [new Producto(1, "Auriculares HyperX Cloud II", 'Auriculares HyperX 
         new Producto(35, 'Mouse HyperX Pulsefire CORE RGB ', '', 2300, 'images/productos/mouse hyperx pulsefire.jpg', ['mouses', 'perifericos']),
         new Producto(34, 'Mouse Logitech G PRO Hero Gaming 16000DPI RGB', '', 3400, 'images/productos/mouse gpro.jpg', ['mouses', 'perifericos']),
         new Producto(36, 'Mouse Logitech G203 Lightsync RGB White', '', 2300, 'images/productos/mouse g203.jpg', ['mouses', 'perifericos'])
-
     ]
     //new Producto(, '', '', , '', [])
+
+class Carrito {
+    constructor() {
+        this.precio = 0
+        this.cantidad = 0
+        this.elementos = []
+        this.cantidadPorElemento = []
+    }
+    agregar(id) {
+        let indice = this.elementos.indexOf(id)
+        if (indice == -1) {
+            this.elementos.push(id)
+            this.cantidad += 1
+            this.cantidadPorElemento.push(1)
+        } else {
+            this.cantidadPorElemento[indice] += 1
+        }
+        actualizarStorage()
+        this.precio += buscarProducto(id, productos).precio
+        this.actualizarLista()
+    }
+    eliminar(id) {
+        let producto = buscarProducto(id, productos)
+        let indiceElemento = this.elementos.indexOf(producto)
+        let cantProducto = this.cantidadPorElemento[indiceElemento]
+        this.precio -= producto.precio * cantProducto
+        this.cantidadPorElemento.splice(indiceElemento, 1)
+        this.elementos.splice(indiceElemento, 1)
+        this.cantidad -= 1
+        this.actualizarLista()
+        actualizarStorage()
+    }
+    vaciar() {
+        this.precio = 0
+        this.cantidad = 0
+        this.cantidadPorElemento = []
+        this.elementos = []
+        this.actualizarLista()
+        actualizarStorage()
+
+    }
+    cantElementos(id) {
+        return this.cantidadPorElemento[this.elementos.indexOf(id)]
+    }
+    actualizarIndicador() {
+        let elementoHtml = document.getElementById('indicadorCarrito')
+        elementoHtml.innerHTML = `<p>${this.cantidad}</p>`
+    }
+    actualizarLista() {
+        let htmlElement = document.getElementById('contenedorCartCards')
+        let precio = 0
+        var elementosLista = ""
+        htmlElement.innerHTML = ``
+        if (this.cantidad != 0) {
+            this.elementos.map(id => {
+                let producto = buscarProducto(id, productos)
+                precio += producto.precio * this.cantElementos(id)
+                elementosLista += `
+                <div id="cardCarrito">
+                    <div class = 'contImagenCart'>
+                    <img src="${producto.imagen}" alt="" class="imagenCart">
+                    </div>
+                    <div class="cartInfo">
+                        <h4 class='titleCart'>${producto.nombre}</h4>
+                        <p class="itemCostCart">$${producto.precio}</p>
+                        <p class = "my-0 ">Cantidad: ${this.cantElementos(id)} <a onclick="carro.eliminar(${producto.id})">Eliminar</a></p>
+                        
+                    </div>
+                </div>
+            `
+            })
+            let listaProductos = document.getElementById('listadoProductos')
+            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
+            ${elementosLista}
+        </div>
+        <div class="footerCart">
+            <p id="total" class="text-center">Total: $${precio}</p>
+            <div class = "justify-content-center w-100 d-flex containerBoton">
+            <button class="btn btn-primary itemBtn col-5">Finalizar compra</button>
+            <button class="btn btn-primary itemBtn col-5" onclick = "carro.vaciar()">Vaciar carrito</button>
+            </div>
+            
+        </div><div class="d-none">No hay elementos</div>`
+        } else {
+            let listaProductos = document.getElementById('listadoProductos')
+            listaProductos.innerHTML = `<div class="d-flex" id="contenedorCartCards">
+            </div>
+            <div class="d-block">No hay elementos</div>`
+        }
+        this.actualizarIndicador()
+    }
+}
+const convertirJSON = (elemento) => JSON.stringify(elemento)
+const parsearJSON = (elemento) => JSON.parse(elemento)
+const guardarSession = (clave, valor) => sessionStorage.setItem(clave, valor)
+const actualizarStorage = () => {
+    guardarSession('cantidadPorElemento', convertirJSON(carro.cantidadPorElemento))
+    guardarSession('elementos', convertirJSON(carro.elementos))
+    guardarSession('cantidad', convertirJSON(carro.cantidad))
+}
 
 function buscarProducto(id, prods) {
     for (let i = 0; i < prods.length; i++) {
@@ -148,6 +156,34 @@ function buscarProducto(id, prods) {
     }
 }
 
+function ordenarMayor() {
+    for (let i = 0; i < productos.length; i++) {
+        for (let j = i; j < productos.length; j++) {
+            if (productos[i].precio < productos[j].precio) {
+                let aux = productos[i]
+                productos[i] = productos[j]
+                productos[j] = aux
+            }
+        }
+    }
+}
+
+function ordenarMenor() {
+    for (let i = 0; i < productos.length; i++) {
+        for (let j = i; j < productos.length; j++) {
+            if (productos[i].precio > productos[j].precio) {
+                let aux = productos[i]
+                productos[i] = productos[j]
+                productos[j] = aux
+            }
+        }
+    }
+}
+
+function ordernarAlfabeticamente() {
+    productos.sort((a, b) => a.nombre > b.nombre)
+}
+
 function encuentraCategoria(categoria, categorias) {
     if (categorias.indexOf(categoria) == -1) {
         return false
@@ -155,6 +191,7 @@ function encuentraCategoria(categoria, categorias) {
         return true
     }
 }
+const cargarSession = (key) => sessionStorage.getItem(key)
 
 function detalles(id) {
     window.location.href = `prod.html?prodID=${id}`;
@@ -168,6 +205,7 @@ carro = new Carrito()
 function injectProductos(productos, categoria) {
     let htmlProd = document.getElementById(categoria)
     if (htmlProd) {
+        htmlProd.innerHTML = ''
         productos.map(prod => {
             htmlElement = `
                     <div class="item m-2" data-aos="zoom-in-right"><img src="${prod.imagen}" alt="Auriculares HyperX" class="itemImg"  onclick = 'detalles(${prod.id})'>
@@ -186,6 +224,14 @@ function injectProductos(productos, categoria) {
             }
         })
     }
+}
+const buscarKey = (nombre) => {
+    for (let i = 0; i < sessionStorage.length; i++) {
+        if (sessionStorage.key(i) == nombre) {
+            return true
+        }
+    }
+    return false
 }
 
 function injectProductosCategoria(productos, categoria) {
@@ -210,9 +256,17 @@ function injectProductosCategoria(productos, categoria) {
         })
     }
 }
-
+ordernarAlfabeticamente()
 injectProductos(productos, 'productos');
 injectProductos(productos, 'perifericos');
 injectProductos(productos, 'computadoras');
 
 carro = new Carrito()
+if (buscarKey('elementos') && buscarKey('cantidad') && buscarKey('cantidadPorElemento')) {
+    carro.elementos = parsearJSON(cargarSession('elementos'))
+    carro.cantidadPorElemento = parsearJSON(cargarSession('cantidadPorElemento'))
+    carro.cantidad = parsearJSON(cargarSession('cantidad'))
+}
+
+
+carro.actualizarLista()

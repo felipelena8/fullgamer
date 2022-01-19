@@ -11209,6 +11209,28 @@ main section .cardIndex {
   background-clip: border-box;
   border-radius: 0.25rem;
 }
+main .opcionOrdenar {
+  display: inline-block;
+  height: 30px;
+  text-align: right;
+}
+main .opcionOrdenar .opcionOrdenarHijo {
+  margin-left: 100px;
+}
+main .opcionOrdenar .opcionOrdenarHijo span {
+  font-family: "Roboto Condensed";
+  font-size: 20px;
+}
+main .opcionOrdenar .opcionOrdenarHijo #dropdownOrdenar {
+  margin-left: 10px;
+}
+main .opcionOrdenar .opcionOrdenarHijo #dropdownOrdenar #dropdownMenuLink {
+  height: 30px;
+  text-align: center;
+  font-family: "Roboto Condensed";
+  font-size: 20px;
+  padding: 2px 10px;
+}
 
 .item {
   display: flex;
@@ -11295,6 +11317,10 @@ main section .cardIndex {
 }
 #contenedorCartCards #cardCarrito .cartInfo {
   margin-left: 12px;
+}
+#contenedorCartCards #cardCarrito .cartInfo .titleCart {
+  font-size: 15px;
+  font-weight: 400;
 }
 #contenedorCartCards #cardCarrito .cartInfo .itemCostCart {
   font-size: 20px;
